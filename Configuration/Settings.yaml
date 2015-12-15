@@ -1,0 +1,13 @@
+TYPO3:
+  Form:
+    presets:
+      default:
+        formElementTypes:
+          'Wegmeister.Recaptcha:Captcha':
+            superTypes: ['TYPO3.Form:FormElement']
+            renderingOptions:
+              templatePathPattern: 'resource://Wegmeister.Recaptcha/Private/Form/Captcha.html'
+              translationPackage: 'Wegmeister.Recaptcha'
+        validatorPresets:
+          'Wegmeister.Recaptcha:IsValid':
+            implementationClassName: 'Wegmeister\Recaptcha\Validation\Validator\IsValidValidator'

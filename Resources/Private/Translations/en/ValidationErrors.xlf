@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="TYPO3.Flow" source-language="en" datatype="plaintext">
+		<body>
+			<!-- CaptchaValidator -->
+			<trans-unit id="1450180930" xml:space="preserve">
+				<source>The given value was not a valid string.</source>
+			</trans-unit>
+			<trans-unit id="1450180934" xml:space="preserve">
+				<source>The captcha was not answered correctly. Please try again.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,8 @@
+<f:layout name="TYPO3.Form:Field" />
+<f:section name="field">
+  <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" />
+  <div class="g-recaptcha" data-sitekey="{element.properties.siteKey}"{f:if(condition: element.properties.theme, then: 'data-theme={element.properties.theme}')}></div>
+  <style>.g-recaptcha>div>div {margin: 0 auto;}</style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script type="text/javascript">!function(e){var t,n,a;e.addEventListener?(t="addEventListener",n=""):(t="attachEvent",n="on"),a=e.getElementById("{element.rootForm.identifier}"),a[t](n+"submit",function(t){e.getElementById("{element.uniqueIdentifier}").value=a.getElementsByClassName("g-recaptcha-response")[0].value},!1)}(document);</script>
+</f:section>

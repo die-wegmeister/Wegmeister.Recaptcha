@@ -1,0 +1,15 @@
+{
+    "name": "wegmeister/recaptcha",
+    "type": "typo3-flow-plugin",
+    "description": "Neos-Plugin to integrate Google's Recaptcha into Forms",
+    "require": {
+        "google/recaptcha": "~1.1",
+        "typo3/form": "*",
+        "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Wegmeister\\Recaptcha": "Classes"
+        }
+    }
+}
