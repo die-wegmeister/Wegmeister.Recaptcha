@@ -13,7 +13,7 @@ Include the package to the require section in your composer.json file
     ...
     "require": {
         ...
-        "wegmeister/recaptcha": "dev-master",
+        "wegmeister/recaptcha": "1.0.*",
         ...
     },
     ...
@@ -22,7 +22,7 @@ Include the package to the require section in your composer.json file
 After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create some keys for your website.
 
 Then you can simply add the new form element to your form definition renderables:
-```
+```yaml
 type: 'TYPO3.Form:Form'
 identifier: someIdentifier
 label: Label
@@ -38,6 +38,10 @@ renderables:
         properties:
           siteKey: your-public-key
           wrapperClassAttribute: 'form-group'
+        # optionally change the translationPackage
+        # if you want to adjust the error message
+        renderingOptions:
+          translationPackage: 'Wegmeister.Recaptcha'
         validators:
           -
             identifier: 'Wegmeister.Recaptcha:IsValid'
