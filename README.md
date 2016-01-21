@@ -38,6 +38,12 @@ renderables:
         properties:
           siteKey: your-public-key
           wrapperClassAttribute: 'form-group'
+          # Optional values to adjust recaptcha. For further information visit
+          # https://developers.google.com/recaptcha/docs/display#config
+          theme: 'light'
+          type: 'image'
+          size: 'normal'
+          tabindex: 0
         # optionally change the translationPackage
         # if you want to adjust the error message
         renderingOptions:
