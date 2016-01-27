@@ -8,8 +8,8 @@
         <target xml:lang="de">Der angegebene Wert ist kein gültiger Text.</target>
       </trans-unit>
       <trans-unit id="1450180934" xml:space="preserve" approved="yes">
-        <source>The captcha was not answered correctly. Please try again.</source>
-        <target xml:lang="de">Das Captcha wurde nicht korrekt beantwortet. Bitte versuchen Sie es erneut.</target>
+        <source>Please check the box "I am not a robot" and try again.</source>
+        <target xml:lang="de">Bitte setzen Sie das Häkchen "Ich bin kein Roboter" und versuchen Sie es erneut.</target>
       </trans-unit>
     </body>
   </file>

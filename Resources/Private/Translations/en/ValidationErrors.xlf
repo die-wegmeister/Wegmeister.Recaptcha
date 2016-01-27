@@ -7,7 +7,7 @@
 				<source>The given value was not a valid string.</source>
 			</trans-unit>
 			<trans-unit id="1450180934" xml:space="preserve">
-				<source>The captcha was not answered correctly. Please try again.</source>
+				<source>Please check the box "I am not a robot" and try again.</source>
 			</trans-unit>
 		</body>
 	</file>
