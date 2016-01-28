@@ -61,3 +61,6 @@ finishers:
 ### I18N
 
 English and German currently are the only languages that are supported at the moment. Feel free to send us another language to add it to the plugin.
+
+
+
