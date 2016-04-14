@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" product-name="TYPO3.Flow" source-language="en" datatype="plaintext" target-language="tr-TR">
+    <body>
+      <!-- CaptchaValidator -->
+      <trans-unit id="1450180930" xml:space="preserve" approved="yes">
+        <source>The given value was not a valid string.</source>
+        <target>Belirtilen değer geçerli bir dizi değildi.</target>
+      </trans-unit>
+      <trans-unit id="1450180934" xml:space="preserve" approved="yes">
+        <source>Please check the box "I am not a robot" and try again.</source>
+        <target>Lütfen "Ben robot değilim" kutusunu işaretleyin ve yeniden deneyin.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
