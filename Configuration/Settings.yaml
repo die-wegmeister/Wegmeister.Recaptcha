@@ -4,7 +4,7 @@ Neos:
       default:
         formElementTypes:
           'Wegmeister.Recaptcha:Captcha':
-            superTypes: ['TYPO3.Form:FormElement']
+            superTypes: ['Neos.Form:FormElement']
             renderingOptions:
               templatePathPattern: 'resource://Wegmeister.Recaptcha/Private/Form/Captcha.html'
               translationPackage: 'Wegmeister.Recaptcha'
