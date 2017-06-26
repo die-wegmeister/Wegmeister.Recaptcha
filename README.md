@@ -1,5 +1,5 @@
 # Wegmeister.Recaptcha
-*Tested with TYPO3.Flow 3.0.x*
+*Tested with Flow 4.0.x*
 
 Neos-Plugin to integrate Google's Recaptcha into Forms
 
@@ -13,7 +13,7 @@ Include the package to the require section in your composer.json file
     ...
     "require": {
         ...
-        "wegmeister/recaptcha": "1.0.*",
+        "wegmeister/recaptcha": "2.0.*",
         ...
     },
     ...
@@ -23,12 +23,12 @@ After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptc
 
 Then you can simply add the new form element to your form definition renderables:
 ```yaml
-type: 'TYPO3.Form:Form'
+type: 'Neos.Form:Form'
 identifier: someIdentifier
 label: Label
 renderables:
   -
-    type: 'TYPO3.Form:Page'
+    type: 'Neos.Form:Page'
     identifier: page-one
     renderables:
       -
@@ -60,7 +60,7 @@ finishers:
 
 ### I18N
 
-English, German and Dutch currently are the only languages that are supported at the moment. Feel free to send us another language to add it to the plugin.
+English, German and Dutch are the only supported languages at the moment. Feel free to send us another language to add it to the plugin.
 
 
 

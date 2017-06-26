@@ -1,6 +1,6 @@
 {
     "name": "wegmeister/recaptcha",
-    "type": "typo3-flow-plugin",
+    "type": "neos-plugin",
     "license": "CC-BY-3.0",
     "description": "Neos-Plugin to integrate Google's Recaptcha into Forms",
     "require": {
