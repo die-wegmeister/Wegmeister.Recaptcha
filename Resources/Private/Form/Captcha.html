@@ -1,4 +1,4 @@
-<f:layout name="TYPO3.Form:Field" />
+<f:layout name="Neos.Form:Field" />
 <f:section name="field">
   <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" />
   <div class="g-recaptcha" data-sitekey="{element.properties.siteKey}"{f:if(condition: element.properties.theme, then: ' data-theme="{element.properties.theme}"')}{f:if(condition: element.properties.type, then: ' data-type="{element.properties.type}"')}{f:if(condition: element.properties.size, then: ' data-size="{element.properties.size}"')}{f:if(condition: element.properties.tabindex, then: ' data-tabindex="{element.properties.tabindex}"')}></div>

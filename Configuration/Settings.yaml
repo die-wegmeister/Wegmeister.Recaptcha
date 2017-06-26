@@ -1,13 +1,16 @@
+
 Neos:
   Form:
     presets:
       default:
         formElementTypes:
           'Wegmeister.Recaptcha:Captcha':
-            superTypes: ['Neos.Form:FormElement']
+            superTypes:
+              - 'Neos.Form:FormElement'
             renderingOptions:
               templatePathPattern: 'resource://Wegmeister.Recaptcha/Private/Form/Captcha.html'
-              translationPackage: 'Wegmeister.Recaptcha'
+              validationErrorTranslationPackage: Wegmeister.Recaptcha
+              translationPackage: Wegmeister.Recaptcha
         validatorPresets:
           'Wegmeister.Recaptcha:IsValid':
-            implementationClassName: 'Wegmeister\Recaptcha\Validation\Validator\IsValidValidator'
+            implementationClassName: Wegmeister\Recaptcha\Validation\Validator\IsValidValidator
