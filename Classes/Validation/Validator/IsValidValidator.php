@@ -16,7 +16,7 @@ namespace Wegmeister\Recaptcha\Validation\Validator;
  *
  * @api
  */
-class IsValidValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidator {
+class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator {
     /**
      * This validator always needs to be executed even if the given value is empty.
      * See AbstractValidator::validate()
@@ -38,7 +38,7 @@ class IsValidValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidato
      *
      * @param mixed $value The value that should be validated
      * @return void
-     * @throws \TYPO3\Flow\Validation\Exception\InvalidValidationOptionsException
+     * @throws \Neos\Flow\Validation\Exception\InvalidValidationOptionsException
      * @api
      */
     protected function isValid($value) {
