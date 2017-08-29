@@ -46,8 +46,8 @@ renderables:
           tabindex: 0
         # optionally change the translationPackage
         # if you want to adjust the error message
-        renderingOptions:
-          translationPackage: 'Wegmeister.Recaptcha'
+        #renderingOptions:
+        #  validationErrorTranslationPackage: 'Wegmeister.Recaptcha'
         validators:
           -
             identifier: 'Wegmeister.Recaptcha:IsValid'
