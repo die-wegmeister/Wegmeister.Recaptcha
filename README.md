@@ -19,7 +19,7 @@ Include the package to the require section in your composer.json file
     ...
 ```
 
-After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create some keys for your website.
+After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create some keys for your website (reCAPTCHA, Version 2).
 
 Then you can simply add the new form element to your form definition renderables:
 ```yaml
