@@ -57,6 +57,22 @@ finishers:
   -
    <Your finishers here>
 ```
+## Using with [Neos.Form.Builder](https://github.com/neos/form-builder)
+
+Install Neos.Form.Builder
+```
+composer require neos/form-builder
+```
+
+Add Captcha form element to your form
+![Captch Element](Documentation/Images/CaptchaFormElement.png)
+
+Configure reCaptcha key and other settings from the Inspector
+
+Also add the Captcha Validator element inside validators child node of Captcha
+![Captcha Validator](Documentation/Images/CaptchaValidator.png)
+
+Configure reCaptcha secretKey from the Inspector
 
 ### I18N
 
