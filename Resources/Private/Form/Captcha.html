@@ -1,8 +1,8 @@
 <f:layout name="Neos.Form:Field" />
 <f:section name="field">
   <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" />
-  <div class="g-recaptcha" data-sitekey="{element.properties.siteKey}"{f:if(condition: element.properties.theme, then: ' data-theme="{element.properties.theme}"')}{f:if(condition: element.properties.type, then: ' data-type="{element.properties.type}"')}{f:if(condition: element.properties.size, then: ' data-size="{element.properties.size}"')}{f:if(condition: element.properties.tabindex, then: ' data-tabindex="{element.properties.tabindex}"')}></div>
+  <div class="g-recaptcha" id="g-recaptcha-{element.uniqueIdentifier}" data-sitekey="{element.properties.siteKey}"{f:if(condition: element.properties.theme, then: ' data-theme="{element.properties.theme}"')}{f:if(condition: element.properties.type, then: ' data-type="{element.properties.type}"')}{f:if(condition: element.properties.size, then: ' data-size="{element.properties.size}"')}{f:if(condition: element.properties.tabindex, then: ' data-tabindex="{element.properties.tabindex}"')}></div>
   <style>.g-recaptcha>div>div {margin: 0 auto;}</style>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script type="text/javascript">!function(e){var t,n,a;e.addEventListener?(t="addEventListener",n=""):(t="attachEvent",n="on"),a=e.getElementById("{element.rootForm.identifier}"),a[t](n+"submit",function(t){e.getElementById("{element.uniqueIdentifier}").value=a.getElementsByClassName("g-recaptcha-response")[0].value},!1)}(document);</script>
+  <f:if condition="{element.renderingOptions.includeAPIScript}"><f:if condition="{element.properties.includeAPIScript} != {false}"><script type="text/javascript">!function(d,w,m){w.hasReCaptchaAPI||(w.hasReCaptchaAPI=true,m=d.createElement('script'),m.async=1,m.defer=1,m.src='https://www.google.com/recaptcha/api.js',d.body.appendChild(m))}(document,window)</script></f:if></f:if>
+  <script type="text/javascript">!function(e){var a=e.getElementById("{element.rootForm.identifier}");a.addEventListener("submit",function(t){e.getElementById("{element.uniqueIdentifier}").value=a.getElementById("g-recaptcha-{element.uniqueIdentifier}").value},!1)}(document)</script>
 </f:section>
