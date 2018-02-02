@@ -1,0 +1,7 @@
+
+prototype(Wegmeister.Recaptcha:CaptchaValidator.Definition) < prototype(Neos.Form.Builder:Validator.Definition) {
+    formElementType = 'Wegmeister.Recaptcha:IsValid'
+    options {
+        secretKey = ${q(node).property('secretKey')}
+    }
+}

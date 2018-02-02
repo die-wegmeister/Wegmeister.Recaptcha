@@ -1,0 +1,3 @@
+prototype(Wegmeister.Recaptcha:Captcha.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
+    formElementType = 'Wegmeister.Recaptcha:Captcha'
+}

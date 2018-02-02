@@ -13,3 +13,12 @@ Neos:
         validatorPresets:
           'Wegmeister.Recaptcha:IsValid':
             implementationClassName: Wegmeister\Recaptcha\Validation\Validator\IsValidValidator
+  Neos:
+    fusion:
+      autoInclude:
+        'Wegmeister.Recaptcha': true
+    userInterface:
+      translation:
+        autoInclude:
+          'Wegmeister.Recaptcha':
+            - 'NodeTypes/*'
