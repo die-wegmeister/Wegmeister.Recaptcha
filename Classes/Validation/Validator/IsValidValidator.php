@@ -16,7 +16,8 @@ namespace Wegmeister\Recaptcha\Validation\Validator;
  *
  * @api
  */
-class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator {
+class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
+{
     /**
      * This validator always needs to be executed even if the given value is empty.
      * See AbstractValidator::validate()
@@ -28,9 +29,9 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
     /**
      * @var array
      */
-    protected $supportedOptions = array(
-        'secretKey' => array('', 'The private key of the Recaptcha', 'string', true)
-    );
+    protected $supportedOptions = [
+        'secretKey' => ['', 'The private key of the Recaptcha', 'string', true]
+    ];
 
 
     /**
@@ -41,7 +42,8 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
      * @throws \Neos\Flow\Validation\Exception\InvalidValidationOptionsException
      * @api
      */
-    protected function isValid($value) {
+    protected function isValid($value)
+    {
         if (!is_string($value)) {
             $this->addError('The given value was not a valid string.', 1450180930);
             return;
@@ -51,7 +53,7 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
         $resp = $recaptcha->verify($value, $_SERVER['REMOTE_ADDR']);
 
         if ($resp->isSuccess() === false) {
-            $this->addError('The captcha was not answered correctly. Please try again.', 1450180934);
+            $this->addError('Please check the box "I am not a robot" and try again.', 1450180934);
         }
     }
 }
