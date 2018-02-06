@@ -1,3 +1,9 @@
+'Neos.Form.Builder:FormElement':
+  abstract: TRUE
+
+'Neos.Form.Builder:ValidatorsMixin':
+  abstract: TRUE
+
 'Wegmeister.Recaptcha:Captcha':
   superTypes:
     'Neos.Form.Builder:FormElement': TRUE

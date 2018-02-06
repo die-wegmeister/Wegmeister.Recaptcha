@@ -1,3 +1,6 @@
+'Neos.Form.Builder:AbstractValidator':
+  abstract: TRUE
+
 'Wegmeister.Recaptcha:CaptchaValidator':
   superTypes:
     'Neos.Form.Builder:AbstractValidator': TRUE
