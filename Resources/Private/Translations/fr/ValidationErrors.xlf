@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" product-name="Wegweiser.Recaptcha" source-language="en" datatype="plaintext" target-language="fr">
+    <body>
+      <!-- CaptchaValidator -->
+      <trans-unit id="1450180930" xml:space="preserve">
+        <source>The given value was not a valid string.</source>
+		<target xml:lang="fr">La valeur saisie n'est pas une chaîne de caractères valide.</target>
+      </trans-unit>
+      <trans-unit id="1450180934" xml:space="preserve">
+        <source>Please check the box "I am not a robot" and try again.</source>
+		<target xml:lang="fr">Veuillez cocher la case "Je ne suis pas un robot" et essayer à nouveau.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
