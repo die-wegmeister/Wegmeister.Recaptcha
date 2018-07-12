@@ -70,7 +70,7 @@ Configure reCaptcha secretKey from the Inspector
 
 ### I18N
 
-English, German and Dutch are the only supported languages at the moment. Feel free to send us another language to add it to the plugin.
+English, German, French and Dutch are the only supported languages at the moment. Feel free to send us another language to add it to the plugin.
 
 
 
