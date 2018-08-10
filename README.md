@@ -63,7 +63,7 @@ Add Captcha form element to your form
 
 Configure reCaptcha site key, secret key and other settings from the Inspector
 
-> :exclamation: The old ReCaptcha form element with an additional validator required will be removed in Version 2.x of this plugin. Please update to the new form element.
+> :exclamation: The old ReCaptcha form element with an additional validator required will be removed in Version 3.x of this plugin. Please update to the new form element.
 
 
 ### Settings
