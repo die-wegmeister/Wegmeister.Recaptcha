@@ -13,6 +13,9 @@
             "Wegmeister\\Recaptcha\\": "Classes"
         }
     },
+    "suggest": {
+        "neos/form-builder": "Integrates the Flow Form Framework into Neos CMS."
+    },
     "extra": {
         "neos": {
             "package-key": "Wegmeister.Recaptcha",
