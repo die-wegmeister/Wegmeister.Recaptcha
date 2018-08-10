@@ -1,7 +1,7 @@
 {
     "name": "wegmeister/recaptcha",
     "type": "neos-package",
-    "license": "CC-BY-3.0",
+    "license": "GPL-3.0-or-later",
     "description": "Form Element for the Flow Form Framework integrating Google's Recaptcha",
     "require": {
         "google/recaptcha": "^1.2",
