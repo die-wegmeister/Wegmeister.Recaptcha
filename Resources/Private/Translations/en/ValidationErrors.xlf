@@ -9,6 +9,14 @@
 			<trans-unit id="1450180934" xml:space="preserve">
 				<source>Please check the box "I am not a robot" and try again.</source>
 			</trans-unit>
+			<trans-unit id="1221560910" xml:space="preserve">
+				<source>This property is required</source>
+				<target xml:lang="en"></target>
+			</trans-unit>
+			<trans-unit id="1221560718" xml:space="preserve">
+				<source>This property is required</source>
+				<target xml:lang="en"></target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

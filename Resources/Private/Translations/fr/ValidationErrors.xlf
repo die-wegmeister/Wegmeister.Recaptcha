@@ -5,11 +5,19 @@
       <!-- CaptchaValidator -->
       <trans-unit id="1450180930" xml:space="preserve">
         <source>The given value was not a valid string.</source>
-		<target xml:lang="fr">La valeur saisie n'est pas une chaîne de caractères valide.</target>
+        <target xml:lang="fr">La valeur saisie n'est pas une chaîne de caractères valide.</target>
       </trans-unit>
       <trans-unit id="1450180934" xml:space="preserve">
         <source>Please check the box "I am not a robot" and try again.</source>
-		<target xml:lang="fr">Veuillez cocher la case "Je ne suis pas un robot" et essayer à nouveau.</target>
+        <target xml:lang="fr">Veuillez cocher la case "Je ne suis pas un robot" et essayer à nouveau.</target>
+      </trans-unit>
+      <trans-unit id="1221560910" xml:space="preserve" approved="yes">
+        <source>This property is required</source>
+        <target xml:lang="fr"></target>
+      </trans-unit>
+      <trans-unit id="1221560718" xml:space="preserve" approved="yes">
+        <source>This property is required</source>
+        <target xml:lang="fr"></target>
       </trans-unit>
     </body>
   </file>

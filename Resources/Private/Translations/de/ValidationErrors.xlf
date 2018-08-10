@@ -11,6 +11,14 @@
         <source>Please check the box "I am not a robot" and try again.</source>
         <target xml:lang="de">Bitte setzen Sie das Häkchen "Ich bin kein Roboter" und versuchen Sie es erneut.</target>
       </trans-unit>
+      <trans-unit id="1221560910" xml:space="preserve" approved="yes">
+        <source>This property is required</source>
+        <target xml:lang="de"></target>
+      </trans-unit>
+      <trans-unit id="1221560718" xml:space="preserve" approved="yes">
+        <source>This property is required</source>
+        <target xml:lang="de"></target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

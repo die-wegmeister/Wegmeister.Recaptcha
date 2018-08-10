@@ -11,6 +11,14 @@
 				<source>Please check the box "I am not a robot" and try again.</source>
 				<target>Selecteer de checkbox om aan te geven dat u geen robot bent en probeer het opnieuw.</target>
 			</trans-unit>
+			<trans-unit id="1221560910" xml:space="preserve" approved="yes">
+				<source>This property is required</source>
+				<target xml:lang="nl"></target>
+			</trans-unit>
+			<trans-unit id="1221560718" xml:space="preserve" approved="yes">
+				<source>This property is required</source>
+				<target xml:lang="nl"></target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

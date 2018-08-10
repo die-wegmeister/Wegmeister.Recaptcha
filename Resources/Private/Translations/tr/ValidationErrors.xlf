@@ -11,6 +11,14 @@
         <source>Please check the box "I am not a robot" and try again.</source>
         <target>Lütfen "Ben robot değilim" kutusunu işaretleyin ve yeniden deneyin.</target>
       </trans-unit>
+      <trans-unit id="1221560910" xml:space="preserve">
+        <source>This property is required</source>
+        <target xml:lang="tr" state="translated"></target>
+      </trans-unit>
+      <trans-unit id="1221560718" xml:space="preserve">
+        <source>This property is required</source>
+        <target xml:lang="tr" state="translated"></target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
