@@ -54,7 +54,7 @@ class Recaptcha extends AbstractFormElement
 
         $properties = $this->getProperties();
         $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey']);
-        if ($properties['expectedHostname']) {
+        if (!empty($properties['expectedHostname'])) {
             $recaptcha->setExpectedHostname($properties['expectedHostname']);
         }
         $resp = $recaptcha->verify($elementValue, $_SERVER['REMOTE_ADDR']);
