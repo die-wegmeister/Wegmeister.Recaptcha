@@ -12,7 +12,7 @@ Neos:
               includeAPIScript: true
               includeClosestPolyfill: true
               validationErrorTranslationPackage: Wegmeister.Recaptcha
-          'Wegmeister.Recaptcha:Captcha2':
+          'Wegmeister.Recaptcha:CaptchaV2':
             superTypes:
               - 'Wegmeister.Recaptcha:Captcha'
             implementationClassName: Wegmeister\Recaptcha\FormElements\Recaptcha

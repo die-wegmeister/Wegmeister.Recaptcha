@@ -10,7 +10,7 @@
 #     nodeTypes:
 #       'Wegmeister.Recaptcha:Captcha': false
 
-'Wegmeister.Recaptcha:Captcha2':
+'Wegmeister.Recaptcha:CaptchaV2':
   superTypes:
     'Neos.Form.Builder:FormElement': true
     'Wegmeister.Recaptcha:CaptchaMixin': true

@@ -1,5 +1,5 @@
-prototype(Wegmeister.Recaptcha:Captcha2.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
-    formElementType = 'Wegmeister.Recaptcha:Captcha2'
+prototype(Wegmeister.Recaptcha:CaptchaV2.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
+    formElementType = 'Wegmeister.Recaptcha:CaptchaV2'
 
     properties {
         siteKey = ${null}
