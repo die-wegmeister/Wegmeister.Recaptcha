@@ -4,10 +4,11 @@
 'Neos.Form.Builder:ValidatorsMixin':
   abstract: TRUE
 
-'Neos.Form.Builder:ElementCollection':
-  constraints:
-    nodeTypes:
-      'Wegmeister.Recaptcha:Captcha': false
+# # Preparation for removal of the old captcha element
+# 'Neos.Form.Builder:ElementCollection':
+#   constraints:
+#     nodeTypes:
+#       'Wegmeister.Recaptcha:Captcha': false
 
 'Wegmeister.Recaptcha:Captcha2':
   superTypes:
