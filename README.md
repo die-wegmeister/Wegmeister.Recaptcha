@@ -3,14 +3,14 @@
 
 Neos-Plugin to integrate Google's Recaptcha into Forms
 
-(c) Benjamin Klix, die wegmeister gmbh
+© Benjamin Klix, [die wegmeister gmbh](https://www.die-wegmeister.com/)
 
 
 ## Installation
 
 Require the package using composer:
 ```
-    composer require wegmeister/recaptcha
+composer require wegmeister/recaptcha
 ```
 
 After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create some keys for your website (reCAPTCHA, Version 2).
