@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="" product-name="Wegweiser.Recaptcha" source-language="en" datatype="plaintext" target-language="tr-TR">
+  <file original="" product-name="Wegmeister.Recaptcha" source-language="en" datatype="plaintext" target-language="tr-TR">
     <body>
       <!-- CaptchaValidator -->
       <trans-unit id="1450180930" xml:space="preserve" approved="yes">
