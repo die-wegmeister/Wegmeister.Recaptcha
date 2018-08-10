@@ -10,6 +10,7 @@ Neos:
             renderingOptions:
               templatePathPattern: 'resource://Wegmeister.Recaptcha/Private/Form/Captcha.html'
               includeAPIScript: true
+              includeClosestPolyfill: true
               validationErrorTranslationPackage: Wegmeister.Recaptcha
           'Wegmeister.Recaptcha:Captcha2':
             superTypes:

@@ -3,6 +3,6 @@
   <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" />
   <div class="g-recaptcha" id="g-recaptcha-{element.uniqueIdentifier}" data-sitekey="{element.properties.siteKey}"{f:if(condition: element.properties.theme, then: ' data-theme="{element.properties.theme}"')}{f:if(condition: element.properties.type, then: ' data-type="{element.properties.type}"')}{f:if(condition: element.properties.size, then: ' data-size="{element.properties.size}"')}{f:if(condition: element.properties.tabindex, then: ' data-tabindex="{element.properties.tabindex}"')}></div>
   <style>.g-recaptcha>div>div {margin: 0 auto;}</style>
-  <script src="{f:uri.resource(path: 'js/closest.min.js', package: 'Wegmeister.Recaptcha')}"></script>
+  <f:if condition="{element.renderingOptions.includeClosestPolyfill}"><script src="{f:uri.resource(path: 'js/closest.min.js', package: 'Wegmeister.Recaptcha')}"></script></f:if>
   <script type="text/javascript">!function(d,w,m){<f:if condition="{element.renderingOptions.includeAPIScript}">w.hasReCaptchaAPI||(w.hasReCaptchaAPI=true,m=d.createElement('script'),m.async=1,m.defer=1,m.src='https://www.google.com/recaptcha/api.js',d.body.appendChild(m));</f:if>w.gRecaptchaCount=w.gRecaptchaCount||0;var g=d.querySelectorAll(".g-recaptcha")[w.gRecaptchaCount],a=g.closest("form");a.addEventListener("submit",function(t){g.previousElementSibling.value=g.querySelector(".g-recaptcha-response").value},!1);w.gRecaptchaCount++}(document,window)</script>
 </f:section>

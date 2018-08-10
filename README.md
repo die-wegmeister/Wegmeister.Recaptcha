@@ -49,7 +49,9 @@ finishers:
   -
    <Your finishers here>
 ```
-## Using with [Neos.Form.Builder](https://github.com/neos/form-builder)
+
+
+### Using with [Neos.Form.Builder](https://github.com/neos/form-builder)
 
 Install Neos.Form.Builder
 ```
@@ -62,6 +64,26 @@ Add Captcha form element to your form
 Configure reCaptcha site key, secret key and other settings from the Inspector
 
 > :exclamation: The old ReCaptcha form element with an additional validator required will be removed in Version 2.x of this plugin. Please update to the new form element.
+
+
+### Settings
+
+This plugin will automatically load the required recaptcha/api.js file once. If you already load this file yourself, you can disable it in the settings.
+Also there is a polyfill for Element.prototype.closest. If you don't need it, you can disable this, too.
+
+```yaml
+Neos:
+  Form:
+    presets:
+      default:
+        formElementTypes:
+          'Wegmeister.Recaptcha:Captcha':
+            renderingOptions:
+              # If you have already included the ReCaptcha api.js file yourself, set this to false.
+              includeAPIScript: true
+              # If you don't need a closest polyfill in js, set this to false.
+              includeClosestPolyfill: true
+```
 
 
 ### I18N
