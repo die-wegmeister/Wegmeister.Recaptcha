@@ -4,7 +4,7 @@
     "license": "CC-BY-3.0",
     "description": "Form Element for the Flow Form Framework integrating Google's Recaptcha",
     "require": {
-        "google/recaptcha": "~1.1",
+        "google/recaptcha": "^1.2",
         "neos/form": "^4.0",
         "php": "~7.0"
     },
