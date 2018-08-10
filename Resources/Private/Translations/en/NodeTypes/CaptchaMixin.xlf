@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Wegmeister.Recaptcha" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="properties.siteKey" xml:space="preserve">
+				<source>Site Key</source>
+			</trans-unit>
+			<trans-unit id="properties.theme" xml:space="preserve">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="properties.theme.selectBoxEditor.values.light" xml:space="preserve">
+				<source>Light</source>
+			</trans-unit>
+			<trans-unit id="properties.theme.selectBoxEditor.values.dark" xml:space="preserve">
+				<source>Dark</source>
+			</trans-unit>
+			<trans-unit id="properties.type" xml:space="preserve">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="properties.type.selectBoxEditor.values.image" xml:space="preserve">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="properties.type.selectBoxEditor.values.audio" xml:space="preserve">
+				<source>Audio</source>
+			</trans-unit>
+			<trans-unit id="properties.size" xml:space="preserve">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="properties.size.selectBoxEditor.values.normal" xml:space="preserve">
+				<source>Normal</source>
+			</trans-unit>
+			<trans-unit id="properties.size.selectBoxEditor.values.compact" xml:space="preserve">
+				<source>Compact</source>
+			</trans-unit>
+			<trans-unit id="properties.tabindex" xml:space="preserve">
+				<source>Tab Index</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

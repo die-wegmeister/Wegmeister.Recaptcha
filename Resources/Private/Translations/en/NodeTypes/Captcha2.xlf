@@ -3,7 +3,13 @@
 	<file original="" product-name="Wegmeister.Recaptcha" source-language="en" datatype="plaintext">
 		<body>
 			<trans-unit id="ui.label" xml:space="preserve">
-				<source>Captcha (old version, don't use)</source>
+				<source>Captcha</source>
+			</trans-unit>
+			<trans-unit id="properties.secretKey" xml:space="preserve">
+				<source>Secret Key</source>
+			</trans-unit>
+			<trans-unit id="properties.expectedHostname" xml:space="preserve">
+				<source>Expected hostname (optional, allows further validation)</source>
 			</trans-unit>
 		</body>
 	</file>

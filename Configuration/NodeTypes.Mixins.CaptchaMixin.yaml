@@ -1,0 +1,76 @@
+'Wegmeister.Recaptcha:CaptchaMixin':
+  abstract: true
+  ui:
+    icon: 'icon-shield'
+    group: 'form.custom'
+    inspector:
+      groups:
+        'formElement':
+          icon: 'icon-shield'
+  properties:
+    'siteKey':
+      type: string
+      defaultValue: ''
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+
+    # Optional values to adjust recaptcha. For further information visit
+    # https://developers.google.com/recaptcha/docs/display#config
+    'theme':
+      type: string
+      defaultValue: 'light'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'light':
+                label: i18n
+              'dark':
+                label: i18n
+    'type':
+      type: string
+      defaultValue: 'image'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'image':
+                label: i18n
+              'audio':
+                label: i18n
+    'size':
+      type: string
+      defaultValue: 'normal'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'normal':
+                label: i18n
+              'compact':
+                label: i18n
+    'tabindex':
+      type: integer
+      defaultValue: 0
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'

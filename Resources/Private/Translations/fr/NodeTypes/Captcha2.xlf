@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Wegmeister.Recaptcha" source-language="en" datatype="plaintext" target-language="fr">
+		<body>
+			<trans-unit id="ui.label" xml:space="preserve">
+				<source>Captcha</source>
+				<target>Captcha</target>
+			</trans-unit>
+			<trans-unit id="properties.secretKey" xml:space="preserve">
+				<source>Secret Key</source>
+				<target>Clef secrète</target>
+			</trans-unit>
+			<trans-unit id="properties.expectedHostname" xml:space="preserve">
+				<source>Expected hostname (optional, allows further validation)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

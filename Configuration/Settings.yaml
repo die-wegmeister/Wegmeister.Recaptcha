@@ -11,6 +11,10 @@ Neos:
               templatePathPattern: 'resource://Wegmeister.Recaptcha/Private/Form/Captcha.html'
               includeAPIScript: true
               validationErrorTranslationPackage: Wegmeister.Recaptcha
+          'Wegmeister.Recaptcha:Captcha2':
+            superTypes:
+              - 'Wegmeister.Recaptcha:Captcha'
+            implementationClassName: Wegmeister\Recaptcha\FormElements\Recaptcha
         validatorPresets:
           'Wegmeister.Recaptcha:IsValid':
             implementationClassName: Wegmeister\Recaptcha\Validation\Validator\IsValidValidator
