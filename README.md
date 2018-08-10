@@ -26,11 +26,14 @@ renderables:
     identifier: page-one
     renderables:
       -
-        type: 'Wegmeister.Recaptcha:Captcha'
+        type: 'Wegmeister.Recaptcha:Captcha2'
         identifier: captcha
         label: Captcha
         properties:
           siteKey: your-public-key
+          secretKey: your-private-key
+          # Optional value if you want to verify the hostname too:
+          expectedHostname: 'www.your-domain.com'
           wrapperClassAttribute: 'form-group'
           # Optional values to adjust recaptcha. For further information visit
           # https://developers.google.com/recaptcha/docs/display#config
@@ -42,11 +45,6 @@ renderables:
         # if you want to adjust the error message
         #renderingOptions:
         #  validationErrorTranslationPackage: 'Wegmeister.Recaptcha'
-        validators:
-          -
-            identifier: 'Wegmeister.Recaptcha:IsValid'
-            options:
-              secretKey: your-private-key
 finishers:
   -
    <Your finishers here>
@@ -61,12 +59,10 @@ composer require neos/form-builder
 Add Captcha form element to your form
 ![Captch Element](Documentation/Images/CaptchaFormElement.png)
 
-Configure reCaptcha key and other settings from the Inspector
+Configure reCaptcha site key, secret key and other settings from the Inspector
 
-Also add the Captcha Validator element inside validators child node of Captcha
-![Captcha Validator](Documentation/Images/CaptchaValidator.png)
+> :exclamation: The old ReCaptcha form element with an additional validator required will be removed in Version 2.x of this plugin. Please update to the new form element.
 
-Configure reCaptcha secretKey from the Inspector
 
 ### I18N
 
