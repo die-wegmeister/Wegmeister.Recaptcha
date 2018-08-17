@@ -38,6 +38,25 @@ use Neos\Form\Core\Runtime\FormRuntime;
 class Recaptcha extends AbstractFormElement
 {
     /**
+     * Recaptcha settings
+     *
+     * @var array
+     */
+    protected $settings;
+
+    /**
+     * Inject the settings
+     *
+     * @param array $settings The settings to inject.
+     *
+     * @return void
+     */
+    public function injectSettings(array $settings)
+    {
+        $this->settings = $settings;
+    }
+
+    /**
      * Check the recaptcha for valid input.
      *
      * @param FormRuntime $formRuntime  The current form runtime
@@ -52,8 +71,17 @@ class Recaptcha extends AbstractFormElement
             return;
         }
 
+        $requestMethodString = strtolower($this->settings['requestMethod']);
+        if ($requestMethodString === 'curl') {
+            $requestMethod = new \ReCaptcha\RequestMethod\CurlPost();
+        } elseif ($requestMethodString === 'socket') {
+            $requestMethod = new \ReCaptcha\RequestMethod\SocketPost();
+        } else {
+            $requestMethod = new \ReCaptcha\RequestMethod\Post();
+        }
+
         $properties = $this->getProperties();
-        $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey']);
+        $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey'], $requestMethod);
         if (!empty($properties['expectedHostname'])) {
             $recaptcha->setExpectedHostname($properties['expectedHostname']);
         }
