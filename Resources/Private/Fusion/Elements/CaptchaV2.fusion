@@ -1,6 +1,8 @@
 prototype(Wegmeister.Recaptcha:CaptchaV2.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
     formElementType = 'Wegmeister.Recaptcha:CaptchaV2'
 
+    @context.languageDimension = ${Configuration.setting('Neos.ContentRepository.dimensionTypes.language') != null ? Configuration.setting('Neos.ContentRepository.dimensionTypes.language') : 'language'}
+
     properties {
         siteKey = ${null}
         secretKey = ${null}
@@ -9,5 +11,7 @@ prototype(Wegmeister.Recaptcha:CaptchaV2.Definition) < prototype(Neos.Form.Build
         type = ${null}
         size = ${null}
         tabindex = ${null}
+        lang = ${String.replace(documentNode.context.dimensions[languageDimension][0], '_', '-')}
+        lang.@if.languageDimensionExists = ${Configuration.setting('Neos.ContentRepository.contentDimensions.' + languageDimension) != null}
     }
 }

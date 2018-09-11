@@ -41,6 +41,11 @@ renderables:
           type: 'image'
           size: 'normal'
           tabindex: 0
+          # If you want to print the recaptche text in a specified language,
+          #   you can set that language here.
+          # Note: If you use the Neos.Form.Builder package, the language will
+          #   automatically be set by your current language dimension.
+          #lang: 'de'
         # optionally change the translationPackage
         # if you want to adjust the error message
         #renderingOptions:
