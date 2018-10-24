@@ -27,6 +27,8 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
     protected $acceptsEmptyValues = false;
 
     /**
+     * Supported options for the Wegmeister\Recaptcha\IsValidValidator
+     *
      * @var array
      */
     protected $supportedOptions = [
@@ -38,6 +40,7 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
      * Checks if the given value is a valid response from google's recaptcha.
      *
      * @param mixed $value The value that should be validated
+     *
      * @return void
      * @throws \Neos\Flow\Validation\Exception\InvalidValidationOptionsException
      * @api
