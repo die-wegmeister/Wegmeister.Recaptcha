@@ -26,7 +26,7 @@ renderables:
     identifier: page-one
     renderables:
       -
-        type: 'Wegmeister.Recaptcha:Captcha2'
+        type: 'Wegmeister.Recaptcha:CaptchaV2'
         identifier: captcha
         label: Captcha
         properties:
