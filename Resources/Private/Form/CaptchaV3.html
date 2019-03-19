@@ -1,0 +1,37 @@
+<f:layout name="Neos.Form:Field" />
+
+<f:section name="field">
+  <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" />
+  <f:if condition="{element.renderingOptions.includeClosestPolyfill}">
+    <script src="{f:uri.resource(path: 'js/closest.min.js', package: 'Wegmeister.Recaptcha')}"></script>
+  </f:if>
+  <script type="text/javascript">
+    var s = '{element.properties.siteKey}';
+    var a = '{element.properties.action}';
+    var c = '#{element.uniqueIdentifier}';
+    var grecaptchaOnload = function () {
+      grecaptcha.ready(function () {
+        grecaptcha.execute(s, { action: a })
+          .then(function (r) {
+            document.querySelector(c).value = r;
+          });
+      });
+    }
+  </script>
+
+  <f:if condition="{element.renderingOptions.includeAPIScript}">
+    <script type="text/javascript">
+      !function (d, w, m) {
+        w.hasReCaptchaAPI || (
+          w.hasReCaptchaAPI = true,
+          m = d.createElement('script'),
+          m.async = 1,
+          m.defer = 1,
+          m.src = 'https://www.google.com/recaptcha/api.js?render={element.properties.siteKey}&onload=grecaptchaOnload',
+          d.body.appendChild(m)
+        );
+      }(document, window)
+    </script>
+  </f:if>
+
+</f:section>

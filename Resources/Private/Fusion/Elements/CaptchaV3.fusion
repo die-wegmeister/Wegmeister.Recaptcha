@@ -1,0 +1,10 @@
+prototype(Wegmeister.Recaptcha:CaptchaV3.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
+    formElementType = 'Wegmeister.Recaptcha:CaptchaV3'
+
+    properties {
+        siteKey = ${null}
+        secretKey = ${null}
+        expectedHostname = ${null}
+        type = ${null}
+    }
+}

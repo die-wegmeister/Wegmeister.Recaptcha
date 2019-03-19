@@ -10,6 +10,84 @@
 #     nodeTypes:
 #       'Wegmeister.Recaptcha:Captcha': false
 
+# This is the recaptcha V3 implementation.
+# Didn't use Mixin because I would need to create
+# a new one for just one Propertie.
+'Wegmeister.Recaptcha:CaptchaV3':
+  superTypes:
+    'Neos.Form.Builder:FormElement': true
+  ui:
+    icon: 'icon-shield'
+    group: 'form.custom'
+    label: i18n
+  properties:
+    'siteKey':
+      type: string
+      defaultValue: ''
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    'secretKey':
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'formElement'
+          position: 'after siteKey'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    'expectedHostname':
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'formElement'
+          position: 'after secretKey'
+    'action':
+      type: string
+      defaultValue: 'homepage'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+          position: 'after expectedHostname'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'homepage':
+                label: i18n
+              'login':
+                label: i18n
+              'social':
+                label: i18n
+              'e-commerce':
+                label: i18n
+    'threshold':
+      type: string
+      defaultValue: 0.5
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+          position: 'after action'
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': []
+    'timeout':
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'formElement'
+          position: 'after threshold'
+
+# This is the recaptcha V2 implementation.
 'Wegmeister.Recaptcha:CaptchaV2':
   superTypes:
     'Neos.Form.Builder:FormElement': true
@@ -33,8 +111,6 @@
         inspector:
           group: 'formElement'
           position: 'after secretKey'
-
-
 
 # This is the old recaptcha implementation.
 # It should be updated to the new version as soon as possible.
