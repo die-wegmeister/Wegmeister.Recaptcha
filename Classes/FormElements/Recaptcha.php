@@ -81,16 +81,7 @@ class Recaptcha extends AbstractFormElement
         }
 
         $properties = $this->getProperties();
-
-        /**
-         * If Action and Threshold are set it is the V3 Captcha.
-         * The Request Method is not used by the V3 Captcha.
-         */
-        if(isset($properties['action']) && isset($properties['threshold'])) {
-            $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey']);
-        } else {
-            $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey'], $requestMethod);
-        }
+        $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey'], $requestMethod);
 
         if (!empty($properties['expectedHostname'])) {
             $recaptcha->setExpectedHostname($properties['expectedHostname']);

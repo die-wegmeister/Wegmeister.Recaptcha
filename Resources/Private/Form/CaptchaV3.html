@@ -6,15 +6,24 @@
     <script src="{f:uri.resource(path: 'js/closest.min.js', package: 'Wegmeister.Recaptcha')}"></script>
   </f:if>
   <script type="text/javascript">
-    var s = '{element.properties.siteKey}';
-    var a = '{element.properties.action}';
-    var c = '#{element.uniqueIdentifier}';
-    var grecaptchaOnload = function () {
+    window.grecaptchaElements = window.grecaptchaElements || [];
+    var siteKey = '{element.properties.siteKey}';
+    var action = '{element.properties.action}'
+    var selector = '#{element.uniqueIdentifier}';
+    window.grecaptchaElements.push({
+      siteKey: siteKey,
+      action: action,
+      selector: selector
+    });
+
+    window.grecaptchaOnload = function () {
       grecaptcha.ready(function () {
-        grecaptcha.execute(s, { action: a })
-          .then(function (r) {
-            document.querySelector(c).value = r;
-          });
+        grecaptchaElements.forEach(function (data) {
+          grecaptcha.execute(data.siteKey, { action: data.action })
+            .then(function (r) {
+              document.querySelector(data.selector).value = r;
+            });
+        });
       });
     }
   </script>
