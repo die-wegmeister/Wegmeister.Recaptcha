@@ -1,0 +1,46 @@
+<f:layout name="Neos.Form:Field" />
+
+<f:section name="field">
+  <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" />
+  <f:if condition="{element.renderingOptions.includeClosestPolyfill}">
+    <script src="{f:uri.resource(path: 'js/closest.min.js', package: 'Wegmeister.Recaptcha')}"></script>
+  </f:if>
+  <script type="text/javascript">
+    window.grecaptchaElements = window.grecaptchaElements || [];
+    var siteKey = '{element.properties.siteKey}';
+    var action = '{element.properties.action}'
+    var selector = '#{element.uniqueIdentifier}';
+    window.grecaptchaElements.push({
+      siteKey: siteKey,
+      action: action,
+      selector: selector
+    });
+
+    window.grecaptchaOnload = function () {
+      grecaptcha.ready(function () {
+        grecaptchaElements.forEach(function (data) {
+          grecaptcha.execute(data.siteKey, { action: data.action })
+            .then(function (r) {
+              document.querySelector(data.selector).value = r;
+            });
+        });
+      });
+    }
+  </script>
+
+  <f:if condition="{element.renderingOptions.includeAPIScript}">
+    <script type="text/javascript">
+      !function (d, w, m) {
+        w.hasReCaptchaAPI || (
+          w.hasReCaptchaAPI = true,
+          m = d.createElement('script'),
+          m.async = 1,
+          m.defer = 1,
+          m.src = 'https://www.google.com/recaptcha/api.js?render={element.properties.siteKey}&onload=grecaptchaOnload',
+          d.body.appendChild(m)
+        );
+      }(document, window)
+    </script>
+  </f:if>
+
+</f:section>

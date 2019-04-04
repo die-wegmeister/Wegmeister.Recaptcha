@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Wegmeister.Recaptcha" source-language="en" datatype="plaintext" target-language="de">
+		<body>
+			<trans-unit id="ui.label" xml:space="preserve">
+				<source>Captcha V3</source>
+				<target>Captcha V3</target>
+			</trans-unit>
+			<trans-unit id="properties.siteKey" xml:space="preserve">
+				<source>Site Key</source>
+				<target>Websiteschlüssel</target>
+			</trans-unit>
+			<trans-unit id="properties.secretKey" xml:space="preserve">
+				<source>Secret Key</source>
+				<target>Geheimer Schlüssel</target>
+			</trans-unit>
+			<trans-unit id="properties.expectedHostname" xml:space="preserve">
+				<source>Expected hostname (optional, allows further validation)</source>
+				<target>Erwarteter Hostname (optional, ermöglicht erweiterte Validierung)</target>
+			</trans-unit>
+			<trans-unit id="properties.action" xml:space="preserve">
+				<source>Action</source>
+				<target>Aktion</target>
+			</trans-unit>
+			<trans-unit id="properties.theme.selectBoxEditor.values.homepage" xml:space="preserve">
+				<source>Homepage</source>
+				<target>Homepage</target>
+			</trans-unit>
+			<trans-unit id="properties.theme.selectBoxEditor.values.login" xml:space="preserve">
+				<source>Login</source>
+				<target>Login</target>
+			</trans-unit>
+      <trans-unit id="properties.theme.selectBoxEditor.values.social" xml:space="preserve">
+				<source>Social</source>
+				<target>Social</target>
+			</trans-unit>
+      <trans-unit id="properties.theme.selectBoxEditor.values.e-commerce" xml:space="preserve">
+				<source>E-Commerce</source>
+				<target>E-Commerce</target>
+			</trans-unit>
+			<trans-unit id="properties.threshold" xml:space="preserve">
+				<source>Threshold (from 0.0 to 1.0)</source>
+				<target>Threshold (from 0.0 to 1.0)</target>
+			</trans-unit>
+			<trans-unit id="properties.timeout" xml:space="preserve">
+				<source>Timeout (In Seconds without trailing 's')</source>
+				<target>Timeout (In Seconds without trailing 's')</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -17,6 +17,9 @@
 				<source>This property is required</source>
 				<target xml:lang="en"></target>
 			</trans-unit>
+			<trans-unit id="1221560719" xml:space="preserve" approved="yes">
+        <source>The reCaptcha-Check failed.</source>
+      </trans-unit>
 		</body>
 	</file>
 </xliff>

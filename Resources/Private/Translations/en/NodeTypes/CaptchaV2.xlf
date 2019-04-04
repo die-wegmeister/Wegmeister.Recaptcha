@@ -3,7 +3,7 @@
 	<file original="" product-name="Wegmeister.Recaptcha" source-language="en" datatype="plaintext">
 		<body>
 			<trans-unit id="ui.label" xml:space="preserve">
-				<source>Captcha</source>
+				<source>Captcha V2</source>
 			</trans-unit>
 			<trans-unit id="properties.secretKey" xml:space="preserve">
 				<source>Secret Key</source>

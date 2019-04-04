@@ -82,23 +82,61 @@ class Recaptcha extends AbstractFormElement
 
         $properties = $this->getProperties();
         $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey'], $requestMethod);
+
         if (!empty($properties['expectedHostname'])) {
             $recaptcha->setExpectedHostname($properties['expectedHostname']);
         }
+        /**  
+         * If one of the following three is set, it is the V3 Captcha.
+         * Action and Threshold can't be empty due to validators, we still 
+         * need to look if they are set because it could be the V2 Captcha.
+         */
+        if(isset($properties['action'])) {
+            $recaptcha->setExpectedAction($properties['action']);
+        }
+        if(isset($properties['threshold'])) {
+            $recaptcha->setScoreThreshold($properties['threshold']);
+        }
+        /**
+         * Optional
+         */
+        if(isset($properties['timeout'])) {
+            $recaptcha->setChallengeTimeout($properties['timeout']);
+        }
+
         $resp = $recaptcha->verify($elementValue, $_SERVER['REMOTE_ADDR']);
 
         if ($resp->isSuccess() === false) {
-            $processingRule = $this
-                ->getRootForm()
-                ->getProcessingRule($this->getIdentifier());
-            $processingRule
-                ->getProcessingMessages()
-                ->addError(
-                    new Error(
-                        'Please check the box "I am not a robot" and try again.',
-                        1450180934
-                    )
-                );
+
+            $processingRule = 
+                $this
+                    ->getRootForm()
+                    ->getProcessingRule($this->getIdentifier());
+            /**
+             * If the Check failed and it's the V3-Captcha, identified by
+             * $properties['action'] it will return an diffrent Error.
+             * The Error 'Please check the box "I am not a robot" and try again.'
+             * Is not suitable for the V3 Captcha.
+             */
+            if(isset($properties['action'])) {
+                $processingRule
+                    ->getProcessingMessages()
+                    ->addError(
+                        new Error(
+                            'The reCaptcha-Check failed.',
+                            1221560719
+                        )
+                    );
+            } else {
+                $processingRule
+                    ->getProcessingMessages()
+                    ->addError(
+                        new Error(
+                            'Please check the box "I am not a robot" and try again.',
+                            1450180934
+                        )
+                    );
+            }
         }
     }
 }
