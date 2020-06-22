@@ -8,7 +8,7 @@
   <script type="text/javascript">
     window.grecaptchaElements = window.grecaptchaElements || [];
     var siteKey = '{element.properties.siteKey}';
-    var action = '{element.properties.action}'
+    var action = '{element.properties.action}';
     var selector = '#{element.uniqueIdentifier}';
     window.grecaptchaElements.push({
       siteKey: siteKey,
@@ -36,7 +36,7 @@
           m = d.createElement('script'),
           m.async = 1,
           m.defer = 1,
-          m.src = 'https://www.google.com/recaptcha/api.js?render={element.properties.siteKey}&onload=grecaptchaOnload',
+          m.src = 'https://www.google.com/recaptcha/api.js?render=<f:format.raw>{element.properties.siteKey}</f:format.raw>&onload=grecaptchaOnload',
           d.body.appendChild(m)
         );
       }(document, window)
