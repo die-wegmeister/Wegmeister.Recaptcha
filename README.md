@@ -57,21 +57,6 @@ finishers:
    <Your finishers here>
 ```
 
-Alternatively, if you do not want to store your `siteKey` and `secretKey` in your form definition (for example to hide it from your git repository), you can also add the properties to your Settings.yaml like this:
-```yaml
-Neos:
-  Form:
-    presets:
-      default:
-        formElementTypes:
-          'Wegmeister.Recaptcha:Captcha':
-            properties:
-              siteKey: 'your-public-key'
-              secretKey: 'your-private-key'
-```
-
-This will update the default properties for your capture fields.
-
 ### Using this package with [Neos.Form.Builder](https://github.com/neos/form-builder)
 
 Install Neos.Form.Builder
@@ -104,6 +89,10 @@ Neos:
               includeAPIScript: true
               # If you don't need a closest polyfill in js, set this to false.
               includeClosestPolyfill: true
+            # Set your siteKey and secretKey in your settings file globally (or if you want to keep it outside your git)
+            properties:
+              siteKey: 'your-public-key'
+              secretKey: 'your-private-key'
 ```
 
 
