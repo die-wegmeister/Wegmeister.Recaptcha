@@ -15,7 +15,9 @@ composer require wegmeister/recaptcha
 
 After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create some keys for your website (reCAPTCHA, Version 2).
 
-Then you can simply add the new form element to your form definition renderables:
+### Using this package without the Neos.Form.Builder package
+
+Simply add the new form element to your form definition renderables:
 ```yaml
 type: 'Neos.Form:Form'
 identifier: someIdentifier
@@ -70,7 +72,7 @@ Neos:
 
 This will update the default properties for your capture fields.
 
-### Using with [Neos.Form.Builder](https://github.com/neos/form-builder)
+### Using this package with [Neos.Form.Builder](https://github.com/neos/form-builder)
 
 Install Neos.Form.Builder
 ```
