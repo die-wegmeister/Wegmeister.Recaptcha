@@ -7,9 +7,9 @@
   </f:if>
   <script type="text/javascript">
     window.grecaptchaElements = window.grecaptchaElements || [];
-    var siteKey = '{element.properties.siteKey}';
-    var action = '{element.properties.action}';
-    var selector = '#{element.uniqueIdentifier}';
+    var siteKey = '<f:format.raw>{element.properties.siteKey}</f:format.raw>';
+    var action = '<f:format.raw>{element.properties.action}</f:format.raw>';
+    var selector = '<f:format.raw>#{element.uniqueIdentifier}</f:format.raw>';
     window.grecaptchaElements.push({
       siteKey: siteKey,
       action: action,
