@@ -1,10 +1,10 @@
 # Wegmeister.Recaptcha
-*Tested with Flow 4.0.x*
 
-Neos-Plugin to integrate Google's Recaptcha into Forms
+Neos plugin to integrate Google's reCaptcha into Forms. The following form integrations are supported:
 
-© Benjamin Klix, [die wegmeister gmbh](https://www.die-wegmeister.com/)
-
+* Neos.Form (v4): Google reCaptcha v2 and v3
+* Neos.Form.Builder (v2) (: Google reCaptcha v2 and v3
+* Neos.Fusion.Form (v2): Google reCaptcha v3
 
 ## Installation
 
@@ -13,11 +13,12 @@ Require the package using composer:
 composer require wegmeister/recaptcha
 ```
 
-After this go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create some keys for your website (reCAPTCHA, Version 2).
+Afterwards, go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create a key for your website. Select the API version you wish to use based on the list above.
 
-### Using this package without the Neos.Form.Builder package
+## Usage with [Neos.Form](https://github.com/neos/form)
 
 Simply add the new form element to your form definition renderables:
+
 ```yaml
 type: 'Neos.Form:Form'
 identifier: someIdentifier
@@ -57,14 +58,9 @@ finishers:
    <Your finishers here>
 ```
 
-### Using this package with [Neos.Form.Builder](https://github.com/neos/form-builder)
+## Usage with [Neos.Form.Builder](https://github.com/neos/form-builder)
 
-Install Neos.Form.Builder
-```
-composer require neos/form-builder
-```
-
-Add Captcha form element to your form
+Add a Captcha form element to your form
 ![Captch Element](Documentation/Images/CaptchaFormElement.png)
 
 Configure reCaptcha site key, secret key and other settings from the Inspector
@@ -72,10 +68,10 @@ Configure reCaptcha site key, secret key and other settings from the Inspector
 > :exclamation: The old ReCaptcha form element with an additional validator required will be removed in Version 3.x of this plugin. Please update to the new form element.
 
 
-### Settings
+## Global settings for Neos.Form and Neos.Form.Builder
 
 This plugin will automatically load the required recaptcha/api.js file once. If you already load this file yourself, you can disable it in the settings.
-Also there is a polyfill for Element.prototype.closest. If you don't need it, you can disable this, too.
+Furthermore, there is a polyfill for `Element.prototype.closest`. If you don't need it, you can disable this, too.
 
 ```yaml
 Neos:
@@ -95,10 +91,42 @@ Neos:
               secretKey: 'your-private-key'
 ```
 
+## Usage with [Neos.Fusion.Form](https://github.com/neos/fusion-form)
 
-### I18N
+> :exclamation: Currently, only reCaptcha v3 is supported with Fusion Forms. Feel free to provide a PR with support for v2.
 
-English, German, French and Dutch are the only supported languages at the moment. Feel free to send us another language to add it to the plugin.
+Add a `FieldContainer` with the `CaptchaV3` element to your form:
 
+    <Neos.Fusion.Form:FieldContainer field.name="captchaV3">
+        <Wegmeister.Recaptcha:FusionForm.CaptchaV3 siteKey="your-site-key" action="your-action-name" includeApiScript={true} />
+    </Neos.Fusion.Form:FieldContainer>
 
+Set the field name based on our needs, but make sure to use the same field name in the schema (see below).
 
+Since an error message is rendered at the position of the form element, you should place it either at the beginning or at the end of the form. 
+
+The following options are available:
+
+* siteKey (required): The reCaptcha v3 website key.
+* action: For statistical purposes, use the action to group the captcha evaluations according to your usage, e.g. "contactForm". [More information](https://developers.google.com/recaptcha/docs/v3#actions)
+* includeApiScript: Whether or not the reCaptcha API script should be included. If you already include it globally, set this to false.
+
+Then, add the field to the schema and configure the Validator:
+
+    captchaV3 = ${Form.Schema.string().validator('Wegmeister.Recaptcha:IsValid', {secretKey: 'your-secret-key', errorMessage: 'The reCaptcha check failed. Try submitting the form again.'})}
+
+Make sure that the key (e.g. `captchaV3`) matches the key in the FieldContainer (see above).
+
+The following options are available:
+
+* secretKey (required): The reCaptcha v3 secret key.
+* errorMessage: Use this to override the error message in case of a failed captcha check.
+
+## i18n
+
+Currently, the following languages are supported: English, German, French and Dutch
+Feel free to send us labels in other languages so we can add them to the plugin.
+
+## Credits
+
+© Benjamin Klix, [die wegmeister gmbh](https://www.die-wegmeister.com/)
