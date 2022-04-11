@@ -1,0 +1,12 @@
+<script>
+	!function (d, w, m) {
+		w.hasReCaptchaAPI || (
+			w.hasReCaptchaAPI = true,
+				m = d.createElement('script'),
+				m.async = 1,
+				m.defer = 1,
+				m.src = 'https://www.google.com/recaptcha/api.js?render=<f:format.raw>{siteKey}</f:format.raw>&onload=grecaptchaOnload',
+				d.body.appendChild(m)
+		);
+	}(document, window)
+</script>

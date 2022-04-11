@@ -1,0 +1,5 @@
+prototype(Wegmeister.Recaptcha:FusionForm.Fragment.ReCaptchaApiScript) < prototype(Neos.Fusion:Template) {
+    templatePath = 'resource://Wegmeister.Recaptcha/Private/Templates/FusionObjects/RecaptchaApiScript.html'
+
+    siteKey = ''
+}

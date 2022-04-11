@@ -1,0 +1,7 @@
+prototype(Wegmeister.Recaptcha:FusionForm.Fragment.CaptchaV3Initialization) < prototype(Neos.Fusion:Template) {
+    templatePath = 'resource://Wegmeister.Recaptcha/Private/Templates/FusionObjects/RecaptchaV3Initialization.html'
+
+    siteKey = ''
+    action = ''
+    selector = ''
+}

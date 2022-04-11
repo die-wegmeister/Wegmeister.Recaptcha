@@ -1,4 +1,5 @@
 <?php
+
 namespace Wegmeister\Recaptcha\Validation\Validator;
 
 /**
@@ -9,7 +10,6 @@ namespace Wegmeister\Recaptcha\Validation\Validator;
  *
  * This package is Open Source Software.
  */
-
 
 /**
  * Validator for checking google's recaptcha response.
@@ -32,9 +32,9 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
      * @var array
      */
     protected $supportedOptions = [
-        'secretKey' => ['', 'The private key of the Recaptcha', 'string', true]
+        'secretKey' => ['', 'The private key of the Recaptcha', 'string', true],
+        'errorMessage' => ['', 'A custom error message if the check fails', 'string', false]
     ];
-
 
     /**
      * Checks if the given value is a valid response from google's recaptcha.
@@ -55,8 +55,10 @@ class IsValidValidator extends \Neos\Flow\Validation\Validator\AbstractValidator
         $recaptcha = new \ReCaptcha\ReCaptcha($this->options['secretKey']);
         $resp = $recaptcha->verify($value, $_SERVER['REMOTE_ADDR']);
 
+        $errorMessage = !empty($this->options['errorMessage']) ? $this->options['errorMessage'] : 'Please check the box "I am not a robot" and try again.';
+
         if ($resp->isSuccess() === false) {
-            $this->addError('Please check the box "I am not a robot" and try again.', 1450180934);
+            $this->addError($errorMessage, 1450180934);
         }
     }
 }
