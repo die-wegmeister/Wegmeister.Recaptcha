@@ -1,0 +1,23 @@
+<script>
+	window.grecaptchaElements = window.grecaptchaElements || [];
+	var siteKey = '<f:format.raw>{siteKey}</f:format.raw>';
+	var action = '<f:format.raw>{action}</f:format.raw>';
+	var selector = '<f:format.raw>{selector}</f:format.raw>';
+	window.grecaptchaElements.push({
+		siteKey: siteKey,
+		action: action,
+		selector: selector,
+	});
+
+	window.grecaptchaOnload = function () {
+		grecaptcha.ready(function () {
+			grecaptchaElements.forEach(function (data) {
+				grecaptcha.execute(data.siteKey, {action: data.action})
+					.then(function (r) {
+						document.querySelector(data.selector).value = r;
+					});
+			});
+		});
+	}
+	setInterval(grecaptchaOnload, 110000);
+</script>
