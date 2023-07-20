@@ -14,7 +14,7 @@ prototype(Wegmeister.Recaptcha:FusionForm.CaptchaV3) < prototype(Neos.Fusion.For
         />
         <Wegmeister.Recaptcha:FusionForm.Fragment.CaptchaV3Initialization siteKey={props.siteKey} action={props.action}
                                                                           selector={props.selector}/>
-        <Wegmeister.Recaptcha:FusionForm.Fragment.ReCaptchaApiScript @if={props.includeApiScript}
+        <Wegmeister.Recaptcha:FusionForm.Fragment.ReCaptchaApiScript @if.includeApiScript={props.includeApiScript}
                                                                      siteKey={props.siteKey}/>
     `
 }
