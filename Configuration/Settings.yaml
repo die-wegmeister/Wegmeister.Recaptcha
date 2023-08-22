@@ -39,3 +39,7 @@ Wegmeister:
     # Available request methods: file_get_contents, curl, socket.
     # If an invalid request method is applied, file_get_contents will be used.
     requestMethod: 'file_get_contents'
+
+    proxy:
+      # in the format of <proxy-hostname>:<port>
+      httpProxy: ''
