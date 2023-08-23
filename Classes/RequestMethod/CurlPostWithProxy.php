@@ -44,7 +44,10 @@ class CurlPostWithProxy implements RequestMethod
      */
     public function injectSettings(array $settings)
     {
-        $this->settings = $settings['proxy'] ?? [];
+        if (empty($this->settings['httpProxy'])) {
+            throw new \Exception("Missing configuration, please add the following settings: 'Wegmeister.Recaptcha.httpProxy'");
+        }
+        $this->settings = $settings;
     }
 
 
@@ -83,15 +86,13 @@ class CurlPostWithProxy implements RequestMethod
             CURLOPT_SSL_VERIFYPEER => true,
         ];
 
-        if (isset($this->settings['httpProxy']) && !empty($this->settings['httpProxy'])) {
-            $httpProxy = $this->settings['httpProxy'];
-            $this->emitHttpProxyRetrieved($httpProxy);
+        $httpProxy = $this->settings['httpProxy'];
+        $this->emitHttpProxyRetrieved($httpProxy);
 
-            $proxy                           = explode(':', $httpProxy);
-            $options[CURLOPT_RETURNTRANSFER] = 1;
-            $options[CURLOPT_PROXY]          = $proxy[0];
-            $options[CURLOPT_PROXYPORT]      = $proxy[1];
-        }
+        $proxy                           = explode(':', $httpProxy);
+        $options[CURLOPT_RETURNTRANSFER] = 1;
+        $options[CURLOPT_PROXY]          = $proxy[0];
+        $options[CURLOPT_PROXYPORT]      = $proxy[1];
 
         $this->curl->setoptArray($handle, $options);
 
