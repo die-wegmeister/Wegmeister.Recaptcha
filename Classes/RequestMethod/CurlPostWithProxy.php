@@ -36,17 +36,38 @@ class CurlPostWithProxy implements RequestMethod
     protected $settings;
 
     /**
+     * @var string
+     */
+    protected $proxyHost;
+
+    /**
+     * @var int
+     */
+    protected $proxyPort;
+
+    /**
      * Inject the settings
      *
      * @param array $settings The settings to inject.
      *
      * @return void
+     * @throws \Exception
      */
     public function injectSettings(array $settings)
     {
         if (empty($settings['httpProxy'])) {
             throw new \Exception("Missing configuration, please add the following settings: 'Wegmeister.Recaptcha.httpProxy'");
         }
+
+        $httpProxyParts = explode(':', $settings['httpProxy']);
+        // check if the settings is a string & has exactly two parts & the port only contains numbers
+        if(!is_string($settings['httpProxy']) || count($httpProxyParts) !== 2 || (int)$httpProxyParts[1] === 0){
+            throw new \Exception("Invalid configuration, the Wegmeister.Recaptcha.httpProxy option should have the following format: 'http://yourproxy.com:1234'");
+        }
+
+        $this->proxyHost = $httpProxyParts[0];
+        $this->proxyPort = $httpProxyParts[1];
+
         $this->settings = $settings;
     }
 
@@ -89,10 +110,9 @@ class CurlPostWithProxy implements RequestMethod
         $httpProxy = $this->settings['httpProxy'];
         $this->emitHttpProxyRetrieved($httpProxy);
 
-        $proxy                           = explode(':', $httpProxy);
         $options[CURLOPT_RETURNTRANSFER] = 1;
-        $options[CURLOPT_PROXY]          = $proxy[0];
-        $options[CURLOPT_PROXYPORT]      = $proxy[1];
+        $options[CURLOPT_PROXY]          = $this->proxyHost;
+        $options[CURLOPT_PROXYPORT]      = $this->proxyPort;
 
         $this->curl->setoptArray($handle, $options);
 

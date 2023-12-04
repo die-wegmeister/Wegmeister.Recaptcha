@@ -20,8 +20,6 @@ namespace Wegmeister\Recaptcha\FormElements;
 use Neos\Error\Messages\Error;
 use Neos\Form\Core\Model\AbstractFormElement;
 use Neos\Form\Core\Runtime\FormRuntime;
-use ReCaptcha\RequestMethod;
-use ReCaptcha\RequestMethod\CurlPost;
 
 /**
  * This is the implementation class of the Recaptcha.
