@@ -59,9 +59,12 @@ class CurlPostWithProxy implements RequestMethod
             throw new \Exception("Missing configuration, please add the following settings: 'Wegmeister.Recaptcha.httpProxy'");
         }
 
+        if(!is_string($settings['httpProxy'])){
+            throw new \Exception("Invalid configuration, the Wegmeister.Recaptcha.httpProxy option has to be a string.");
+        }
+
         $httpProxyParts = explode(':', $settings['httpProxy']);
-        // check if the settings is a string & has exactly two parts & the port only contains numbers
-        if(!is_string($settings['httpProxy']) || count($httpProxyParts) !== 2 || (int)$httpProxyParts[1] === 0){
+        if(count($httpProxyParts) !== 2 || (int)$httpProxyParts[1] === 0){
             throw new \Exception("Invalid configuration, the Wegmeister.Recaptcha.httpProxy option should have the following format: 'http://yourproxy.com:1234'");
         }
 
