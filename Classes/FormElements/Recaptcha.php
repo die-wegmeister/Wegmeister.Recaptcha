@@ -71,36 +71,39 @@ class Recaptcha extends AbstractFormElement
             return;
         }
 
-        $requestMethodString = strtolower($this->settings['requestMethod']);
-        if ($requestMethodString === 'curl') {
-            $requestMethod = new \ReCaptcha\RequestMethod\CurlPost();
-        } elseif ($requestMethodString === 'socket') {
-            $requestMethod = new \ReCaptcha\RequestMethod\SocketPost();
+        $requestMethodString = $this->settings['requestMethod'];
+
+        if (self::isReCaptchaRequestClass($requestMethodString)) {
+            $requestMethod = new $requestMethodString();
         } else {
-            $requestMethod = new \ReCaptcha\RequestMethod\Post();
+            $requestMethod = match (strtolower($requestMethodString)) {
+                'curl' => new \ReCaptcha\RequestMethod\CurlPost(),
+                'socket' => new \ReCaptcha\RequestMethod\SocketPost(),
+                default => new \ReCaptcha\RequestMethod\Post(),
+            };
         }
 
         $properties = $this->getProperties();
-        $recaptcha = new \ReCaptcha\ReCaptcha($properties['secretKey'], $requestMethod);
+        $recaptcha  = new \ReCaptcha\ReCaptcha($properties['secretKey'], $requestMethod);
 
         if (!empty($properties['expectedHostname'])) {
             $recaptcha->setExpectedHostname($properties['expectedHostname']);
         }
-        /**  
+        /**
          * If one of the following three is set, it is the V3 Captcha.
-         * Action and Threshold can't be empty due to validators, we still 
+         * Action and Threshold can't be empty due to validators, we still
          * need to look if they are set because it could be the V2 Captcha.
          */
-        if(isset($properties['action'])) {
+        if (isset($properties['action'])) {
             $recaptcha->setExpectedAction($properties['action']);
         }
-        if(isset($properties['threshold'])) {
+        if (isset($properties['threshold'])) {
             $recaptcha->setScoreThreshold($properties['threshold']);
         }
         /**
          * Optional
          */
-        if(isset($properties['timeout'])) {
+        if (isset($properties['timeout'])) {
             $recaptcha->setChallengeTimeout($properties['timeout']);
         }
 
@@ -108,7 +111,7 @@ class Recaptcha extends AbstractFormElement
 
         if ($resp->isSuccess() === false) {
 
-            $processingRule = 
+            $processingRule =
                 $this
                     ->getRootForm()
                     ->getProcessingRule($this->getIdentifier());
@@ -118,7 +121,7 @@ class Recaptcha extends AbstractFormElement
              * The Error 'Please check the box "I am not a robot" and try again.'
              * Is not suitable for the V3 Captcha.
              */
-            if(isset($properties['action'])) {
+            if (isset($properties['action'])) {
                 $processingRule
                     ->getProcessingMessages()
                     ->addError(
@@ -138,5 +141,15 @@ class Recaptcha extends AbstractFormElement
                     );
             }
         }
+    }
+
+    /**
+     * @param string $className
+     *
+     * @return bool
+     */
+    protected static function isReCaptchaRequestClass(string $className)
+    {
+        return class_exists($className) && in_array('ReCaptcha\RequestMethod', class_implements($className), true);
     }
 }
