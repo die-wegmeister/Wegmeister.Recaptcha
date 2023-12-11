@@ -36,8 +36,9 @@ Neos:
 
 Wegmeister:
   Recaptcha:
-    # Available request methods: file_get_contents, curl, socket.
+    # Available request methods: file_get_contents, curl, socket,
+    # or you can provide a FQCN that implements ReCaptcha\RequestMethod.
     # If an invalid request method is applied, file_get_contents will be used.
     requestMethod: 'file_get_contents'
-    # in the format of <proxy-hostname>:<port>
+    # The following option will be used, if requestMethod is 'Wegmeister\Recaptcha\RequestMethod\CurlPostWithProxy'
     httpProxy: ''
