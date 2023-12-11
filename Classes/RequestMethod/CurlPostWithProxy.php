@@ -63,13 +63,16 @@ class CurlPostWithProxy implements RequestMethod
             throw new \Exception("Invalid configuration, the Wegmeister.Recaptcha.httpProxy option has to be a string.");
         }
 
-        $httpProxyParts = explode(':', $settings['httpProxy']);
-        if(count($httpProxyParts) !== 2 || (int)$httpProxyParts[1] === 0){
+        $httpProxy = $settings['httpProxy'];
+        $this->emitHttpProxyRetrieved($httpProxy);
+
+        $formatIsValid = preg_match('@(.*):(\d{1,5})@', $httpProxy, $httpProxyParts);
+        $this->proxyHost = $httpProxyParts[1];
+        $this->proxyPort = (int)$httpProxyParts[2];
+
+        if(!$formatIsValid || !$this->proxyHost || !$this->proxyPort){
             throw new \Exception("Invalid configuration, the Wegmeister.Recaptcha.httpProxy option should have the following format: 'http://yourproxy.com:1234'");
         }
-
-        $this->proxyHost = $httpProxyParts[0];
-        $this->proxyPort = $httpProxyParts[1];
 
         $this->settings = $settings;
     }
@@ -109,9 +112,6 @@ class CurlPostWithProxy implements RequestMethod
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_SSL_VERIFYPEER => true,
         ];
-
-        $httpProxy = $this->settings['httpProxy'];
-        $this->emitHttpProxyRetrieved($httpProxy);
 
         $options[CURLOPT_RETURNTRANSFER] = 1;
         $options[CURLOPT_PROXY]          = $this->proxyHost;
