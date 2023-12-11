@@ -15,6 +15,17 @@ composer require wegmeister/recaptcha
 
 Afterwards, go to [http://www.google.com/recaptcha](http://www.google.com/recaptcha) and create a key for your website. Select the API version you wish to use based on the list above.
 
+## Configuration
+
+### HTTP Proxy
+If you are using a http proxy on your server you need to add this configuration:
+```
+Wegmeister:
+  Recaptcha:
+    requestMethod: 'Wegmeister\Recaptcha\RequestMethod\CurlPostWithProxy'
+    httpProxy: 'http://yourproxy.com:1234'
+```
+
 ## Usage with [Neos.Form](https://github.com/neos/form)
 
 Simply add the new form element to your form definition renderables:
