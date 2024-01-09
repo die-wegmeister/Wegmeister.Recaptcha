@@ -66,7 +66,7 @@ class CurlPostWithProxy implements RequestMethod
         $httpProxy = $settings['httpProxy'];
         $this->emitHttpProxyRetrieved($httpProxy);
 
-        $formatIsValid = preg_match('@(.*):(\d{1,5})@', $httpProxy, $httpProxyParts);
+        $formatIsValid = preg_match('@^(.*):(\d{1,5})$@', $httpProxy, $httpProxyParts);
         $this->proxyHost = $httpProxyParts[1];
         $this->proxyPort = (int)$httpProxyParts[2];
 
